@@ -1,0 +1,84 @@
+
+.header {
+  margin-top: 0;
+  text-align: center;
+}
+.value-prop {
+  margin-top: 1rem;
+}
+.value-props {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.container {
+  max-width: 800px;
+}
+
+#marker {
+  width: 6em;
+  height: auto;
+ }
+
+#check {
+  width: 6em;
+  height: auto;
+}
+
+#request {
+  width: 6em;
+  height: auto;
+}
+
+.header-spacer {
+  margin-bottom: 3em;
+}
+
+#main-part {
+
+}
+
+#footer {
+  margin-top: 3em;
+  text-align: center;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+.twilio {
+  height: 600px;
+  width: 100%;
+  background-color: light-grey;
+}
+
+.desc {
+  margin-bottom: 0;
+}
+
+/*.title-label {
+  color: red;
+}*/
+
+#complain {
+  margin-bottom: 0;
+}
+
+#fax-num {
+  margin: 1rem;
+}
+
+#fax-text {
+  margin: 1rem;
+  height: 300px;
+}
+
+.complain-label {
+  color: white;
+}
+
+/*button*/
+#submit {
+  margin-left: 1em;
+}

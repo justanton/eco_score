@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  .container
+    section.header
+      .image-block
+        img.logo(src='images/logo.jpg' alt='Eco Score Logo')
+      .value-props.row
+        .four.columns.value-prop
+          img#marker(src='images/location.svg' alt='marker')
+          h3 Find your area
+        .four.columns.value-prop
+          img#check(src='images/check.jpeg' alt='check')
+          h3 Check the Eco Score
+        .four.columns.value-prop
+          img#request(src='images/request.svg')
+          h3 Request a change!
+  .header-spacer
+  .container#main-part
+    .row
+      .seven.columns
+        #map
+          script.
+            function initMap() {
+            var markers = [
+            [1, 51.418037, 5.513698, '5646JM', '34'],
+            [3, 51.436566, 5.477863, '5611GK', '46'],
+            [4, 51.430009, 5.45704, '5616EV', '36'],
+            [7, 51.437342, 5.451621, '5616JG', '26'],
+            [8, 51.421165, 5.495182, '5643AJ', '29'],
+            [9, 51.479692, 5.475067, '5628PZ', '32'],
+            [12, 51.42086, 5.461714, '5654DT', '30'],
+            [13, 51.441418, 5.420636, '5657AR', '30'],
+            [14, 51.413641, 5.431472, '5655JK', '27'],
+            [19, 51.491434, 5.439207, '5627TE', '21']
+            ];
+            
+            var infowindow = new google.maps.InfoWindow();
+            var eindhoven = {lat: 51.4416, lng: 5.4697};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 13,
+              center: eindhoven
+            });
+            
+            
+            for (i = 0; i < markers.length; i++){
+              var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                marker = new google.maps.Marker({
+                  position: position,
+                  map: map
+                });
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                  return function () {
+                    var plz = markers[i][3];
+                    var score = markers[i][4];
+                    var html = "<b>" + 'Postal Code: ' + plz + "</b> <br/>" + "<span style='color:blue'>"+ 'Eco Score: '+ "</strong>" + score;
+                    infowindow.setContent(html);
+                    infowindow.open(map, marker, html);
+                  }
+                })(marker, i)); 
+            }       
+            }
+          script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&callback=initMap')
+      .five.columns
+        .twilio#complaint
+          .wrap
+            h4.desc Unhappy?
+            p.desc Send a <strong>fax</strong> to to your administration:
+            form#complain(action='/pdf' method='POST')
+              //- label(for='number')
+              //- span.title-label To:
+              input#fax-num(type='number', placeholder='Administration Fax', name='faxnum')
+              label(for='complain')
+              textarea#fax-text(name="content", rows='8', cols='35', placeholder='Your request here')
+              button#submit.submit-button(type='submit') Submit
+
+          
+
+            
