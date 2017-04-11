@@ -1,5 +1,5 @@
 ## Eco Score
-displays the eco score of your neighborhood and allows you to send a **fax**
+displays the eco score (fine dust particles rate) of your neighborhood and allows you to send a **fax** via Twilio Fax API
 to the local authorities if you want to see a change in your city.
 
 ![eco](https://cloud.githubusercontent.com/assets/22058211/24902752/7cd2c704-1eab-11e7-9125-cf0a004f9860.jpg)
